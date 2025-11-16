@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtros de Color</title>
+</head>
+<body>
+
+<h1>Filtros por Color</h1>
+
+<!-- Botones -->
+<button onclick="toggle('yellow')">Amarillo</button>
+<button onclick="toggle('green')">Verde</button>
+<button onclick="toggle('red')">Rojo</button>
+
+<hr>
+
+<!-- Video -->
+<img src="/video_feed" width="640">
+
+<script>
+function toggle(color) {
+    fetch("/toggle_color", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `color=${color}`
+    });
+}
+</script>
+
+</body>
+</html>
